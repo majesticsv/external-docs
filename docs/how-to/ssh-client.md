@@ -14,10 +14,10 @@ SSH (Secure Shell) é um protocolo que permite acessar outro computador de manei
 
 Para utilizar o SSH, você precisa de:
 
-- Um cliente SSH instalado no seu computador (o OpenSSH já vem no Linux e no macOS; no Windows você pode usar o PuTTY ou o OpenSSH do PowerShell)
+- Um cliente SSH instalado no seu computador (o OpenSSH já vem no Linux e no macOS; no [Windows você pode usar o PuTTY](#como-se-conectar-usando-o-putty-windows) ou o OpenSSH do PowerShell)
 - O endereço IP ou o nome do servidor
 - Um nome de usuário válido
-- Uma senha ou uma chave SSH configurada
+- Uma senha ou uma [chave SSH configurada](#usando-autenticação-por-chave-ssh)
 
 ---
 
@@ -70,7 +70,7 @@ Alguns servidores preferem (ou exigem) autenticação por chave SSH em vez de se
 
    Pressione Enter para aceitar os caminhos padrão. Uma chave pública e uma chave privada serão criadas.
 
-2. **Enviar a chave pública para o servidor:**
+2. **Enviar a chave pública para o servidor via terminal:**
 
    Use o comando:
 
@@ -83,6 +83,48 @@ Alguns servidores preferem (ou exigem) autenticação por chave SSH em vez de se
    ```bash
    ssh usuario@ip_do_servidor
    ```
+
+3.1. Acessando com chave no terminal (Windows)
+
+   -> METODO 1:
+   Importe a chave:
+   - copie a chava para o local
+     - `c:/SEU_USUARIO/.ssh/`
+   - abra o arquivo `config` nesta mesma pasta com algum editor de textos (ex: bloco de notas, sublime text, notepad++, etc)
+     - no arquivo encontre o ip do seu servidor, exemplo abaixo:
+     ```
+     Host IP_OU_DOMINO_DO_SERVIDOR
+     HostName IP_OU_DOMINO_DO_SERVIDOR
+     User USUARIO
+     ```
+     - adicione a seguinte linha logo abaixo da linha de usuario:
+     ```
+     IdentityFile ~/.ssh/NOME_DA_CHAVE
+     ```
+     - Salve o arquivo e teste a conexao com o comando a seguir:
+     ```bash
+     ssh usuario@ip_do_servidor
+     ```
+   - Se a conexao nao solicitou a senha e obteve acesso o processo esta completo e para acessar é só utilizar o mesmo comando acima.
+
+   -> METODO 2:
+   Utilize o comando:
+   ```bash
+   ssh -i chave_SSH_com_endereco_completo usuario@ip_do_servidor
+   ```
+   exemplo:
+   ```bash
+   ssh -i c:/pasta1/minhachavessh usuario@ip_do_servidor
+   ```
+
+3.2. Acessando com chave no PuTTY (Windows)
+   
+   - No tela inical do PuTTY salve um perfil pra facilitar.
+   - Na lateral esquerda vá em:
+     - Conection -> SSH -> Auth -> Credentials
+   - Na seção de private keys selecione a sua.
+   - Volte para a aba `Session` e salve novamente seu perfil, caso contrario precisará inserir a chave sempre que abrir o PuTTY.
+   - Ao abrir é só clicar duas vezes no perfil salvo que ele iniciará a conexão.
 
 ---
 
