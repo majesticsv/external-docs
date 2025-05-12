@@ -78,17 +78,17 @@ Alguns servidores preferem (ou exigem) autenticação por chave SSH em vez de se
    ssh-copy-id usuario@ip_do_servidor
    ```
 
-3. Agora você pode acessar o servidor sem precisar digitar a senha:
+3. **Agora você pode acessar o servidor sem precisar digitar a senha:**
 
    ```bash
    ssh usuario@ip_do_servidor
    ```
 
-3.1. Acessando com chave no terminal (Windows)
+3.1. **Acessando com chave no terminal (Windows)**
 
-   -> METODO 1:
-   Importe a chave:
-   - copie a chava para o local
+   -> METODO 1:  
+   **Importe a chave:**
+   - copie sua chave para o local padrão do windows
      - `c:/SEU_USUARIO/.ssh/`
    - abra o arquivo `config` nesta mesma pasta com algum editor de textos (ex: bloco de notas, sublime text, notepad++, etc)
      - no arquivo encontre o ip do seu servidor, exemplo abaixo:
@@ -107,8 +107,8 @@ Alguns servidores preferem (ou exigem) autenticação por chave SSH em vez de se
      ```
    - Se a conexao nao solicitou a senha e obteve acesso o processo esta completo e para acessar é só utilizar o mesmo comando acima.
 
-   -> METODO 2:
-   Utilize o comando:
+   -> METODO 2:  
+   **Especifique a chave diretamente no comando:**
    ```bash
    ssh -i chave_SSH_com_endereco_completo usuario@ip_do_servidor
    ```
@@ -117,7 +117,7 @@ Alguns servidores preferem (ou exigem) autenticação por chave SSH em vez de se
    ssh -i c:/pasta1/minhachavessh usuario@ip_do_servidor
    ```
 
-3.2. Acessando com chave no PuTTY (Windows)
+3.2. **Acessando com chave no PuTTY (Windows)**
    
    - No tela inical do PuTTY salve um perfil pra facilitar.
    - Na lateral esquerda vá em:
