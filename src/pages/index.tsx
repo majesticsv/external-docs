@@ -31,6 +31,11 @@ function HomepageHeader() {
 
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
+  useEffect(()=>{
+  if (!window) { return }
+  // @ts-expect-errorr | fuck ducu
+  window.location = '/docs/intro'
+}, [])
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
